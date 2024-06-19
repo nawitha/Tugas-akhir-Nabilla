@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-# Abstract class AnggotaKpop
 class AnggotaKpop(ABC):
     def __init__(self, nama, umur, posisi):
         self.nama = nama
@@ -11,7 +10,6 @@ class AnggotaKpop(ABC):
     def tampil(self):
         pass
 
-# Interface AksiKpop
 class AksiKpop(ABC):
     @abstractmethod
     def menari(self):
@@ -21,7 +19,6 @@ class AksiKpop(ABC):
     def bernyanyi(self):
         pass
 
-# Concrete class Penari yang mengimplementasikan AnggotaKpop dan AksiKpop
 class Penari(AnggotaKpop, AksiKpop):
     def __init__(self, nama, umur, posisi, gaya_tari):
         super().__init__(nama, umur, posisi)
@@ -36,7 +33,6 @@ class Penari(AnggotaKpop, AksiKpop):
     def bernyanyi(self):
         print(f"{self.nama} bernyanyi sambil menari dengan gaya {self.gaya_tari}.")
 
-# Concrete class Vokalis yang mengimplementasikan AnggotaKpop dan AksiKpop
 class Vokalis(AnggotaKpop, AksiKpop):
     def __init__(self, nama, umur, posisi, rentang_vokal):
         super().__init__(nama, umur, posisi)
@@ -51,7 +47,6 @@ class Vokalis(AnggotaKpop, AksiKpop):
     def bernyanyi(self):
         print(f"{self.nama} bernyanyi dengan indah dalam rentang vokal {self.rentang_vokal}.")
 
-# Concrete class Rapper yang mengimplementasikan AnggotaKpop dan AksiKpop
 class Rapper(AnggotaKpop, AksiKpop):
     def __init__(self, nama, umur, posisi, gaya_rap):
         super().__init__(nama, umur, posisi)
@@ -66,13 +61,11 @@ class Rapper(AnggotaKpop, AksiKpop):
     def bernyanyi(self):
         print(f"{self.nama} bernyanyi sambil nge-rap dalam gaya {self.gaya_rap}.")
 
-# Polymorphism contoh
 def tampilkan_penampilan(anggota: AnggotaKpop):
     anggota.tampil()
     anggota.menari()
     anggota.bernyanyi()
 
-# Fungsi utama untuk mendemonstrasikan kelas-kelas
 if __name__ == "__main__":
     penari = Penari("Hoshi", 28, "Main Dancer", "Hip Hop")
     vokalis = Vokalis("Dokyeom", 27, "Main Vocalist", "Tenor")
